@@ -3,13 +3,12 @@ Database models.
 """
 
 from django.conf import settings
-from django.core.checks import Tags
-from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
     PermissionsMixin,
 )
+from django.db import models
 
 
 class UserManager(BaseUserManager):
@@ -26,7 +25,7 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, password):
-        """"Create and return a new superuser."""
+        """Create and return a new superuser."""
         user = self.create_user(email, password)
         user.is_staff = True
         user.is_superuser = True
