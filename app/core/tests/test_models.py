@@ -16,6 +16,7 @@ def create_user(email='user@example.com', password='testpass123'):
 
 class ModelTests(TestCase):
     """Test models."""
+
     def test_create_user_with_email_successfull(self):
         """Test creating user with an email is successfull"""
         email = 'test@example.com'
@@ -77,3 +78,14 @@ class ModelTests(TestCase):
         tag = models.Tag.objects.create(user=user, name='Tag1')
 
         self.assertEqual(str(tag), tag.name)
+
+    def test_create_ingredient(self):
+        """Test creating ingredient is successful."""
+
+        user = create_user()
+        ingredient = models.Ingredient.objects.create(
+            user=user,
+            name='Sample ingredient',
+        )
+
+        self.assertEqual(str(ingredient), ingredient.name)
