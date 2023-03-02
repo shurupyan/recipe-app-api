@@ -41,7 +41,7 @@ services:
     ports:
       - "80:8000"
     volumes:
-      - static-data:/vol/web/static
+      - static-data:/vol/static
 
 
 volumes:
